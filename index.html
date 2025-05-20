@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Bridal makeup services by Eunice - EL GLAM HOUSE. Certified, personalized, and elegant looks for your special day."/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bridal Makeup Artistry | EL GLAM HOUSE</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #444;
+      background: #fff;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: #d47fa6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    header {
+      position: fixed;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items:center;
+      padding: 1rem 1.5rem;
+    }
+    nav h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #d47fa6;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    /* Mobile menu */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #d47fa6;
+      cursor: pointer;
+    }
+    /* Hero */
+    .hero {
+      height: 90vh;
+      background: url('https://images.unsplash.com/photo-1542831371-d531d36971e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 0rem;
+      color: #fff;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(212,127,166,0.65);
+      mix-blend-mode: multiply;
+      z-index: 0;
+      border-radius: 0 0 80px 80px;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      font-family: 'Playfair Display', serif;
+      padding: 0 1rem;
+    }
+    .hero-content h2 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      text-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+    }
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      text-shadow:  1px 1px 6px rgba(0,0,0,0.3);
+    }
+    .btn-primary {
+      background: #d47fa6;
+      color: #fff;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 8px 15px rgba(212,127,166,0.4);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+    .btn-primary:hover {
+      background: #b35a81;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px rgba(212,127,166,0.5);
+    }
+
+    /* Section styling */
+    section {
+      padding: 4rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h2.section-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: 2.75rem;
+      color: #d47fa6;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    h2.section-title::after {
+      content: "";
+      width: 6rem;
+      height: 4px;
+      background: #d47fa6;
+      display: block;
+      margin: 0.5rem auto 0 auto;
+      border-radius: 2px;
+    }
+    p.section-description {
+      max-width: 720px;
+      margin: 0 auto 3rem auto;
+      color: #666;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    /* About Me */
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .about-image {
+      flex: 1 1 350px;
+      max-width: 400px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(212,127,166,0.3);
+    }
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .about-text {
+      flex: 1 1 400px;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #555;
+    }
+    .certifications {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      justify-content: flex-start;
+      color: #a3457d;
+      font-weight: 600;
+    }
+    .cert-item {
+      background: #f6e0eb;
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
+      box-shadow: 0 3px 10px rgba(163,69,125,0.2);
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2.5rem;
+    }
+    .service-item {
+      background: #f9e7f0;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 8px 15px rgba(212,127,166,0.2);
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(212,127,166,0.35);
+    }
+    .service-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #b95d8a;
+    }
+    .service-item p {
+      font-size: 1rem;
+      color: #6a4f63;
+      margin-bottom: 0.5rem;
+    }
+    .service-price {
+      font-weight: 700;
+      color: #832c54;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+    .service-item::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: #d47fa6;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .service-item:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* Portfolio */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap: 1rem;
+    }
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(212,127,166,0.3);
+      cursor: pointer;
+      aspect-ratio: 1/1;
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: all 0.5s ease;
+      border-radius: 15px;
+    }
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+    .portfolio-caption {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(212,127,166,0.8);
+      color: white;
+      text-align: center;
+      padding: 0.5rem 0;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      border-radius: 0 0 15px 15px;
+    }
+
+    /* Testimonials */
+    .testimonial-slider {
+      position: relative;
+      max-width: 720px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .testimonial-wrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .testimonial {
+      min-width: 100%;
+      padding: 2rem 1.5rem;
+      background: #fdf4fb;
+      border-radius: 25px;
+      box-shadow: 0 6px 18px rgba(212,127,166,0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+      font-style: italic;
+      color: #7a4b65;
+    }
+    .testimonial strong {
+      font-weight: 700;
+      color: #d47fa6;
+      font-style: normal;
+    }
+    .testimonial-nav {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .testimonial-btn {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: #d47fa699;
+      border-radius: 50%;
+      margin: 0 8px;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    .testimonial-btn.active,
+    .testimonial-btn:hover {
+      background: #d47fa6;
+      transform: scale(1.2);
+    }
+
+    /* Booking */
+    .booking-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .booking-form-container {
+      flex: 1 1 500px;
+    }
+    .instagram-section {
+      flex: 0 1 300px;
+      text-align: center;
+      background: #fceef4;
+      padding: 2rem;
+      border-radius: 30px;
+      box-shadow: 0 8px 30px rgba(212,127,166,0.3);
+      transition: all 0.3s ease;
+    }
+    .instagram-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(212,127,166,0.4);
+    }
+    .instagram-section h3 {
+      font-family: 'Playfair Display', serif;
+      color: #d47fa6;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    .instagram-section p {
+      color: #7a4b65;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    .qr-code {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 1.5rem;
+      padding: 10px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .instagram-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #d47fa6;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    .instagram-link:hover {
+      background: rgba(212,127,166,0.1);
+      text-decoration: none;
+      transform: translateY(-2px);
+    }
+    .instagram-link i {
+      font-size: 1.2rem;
+    }
+    form {
+      background: #fceef4;
+      padding: 2.5rem 2rem;
+      border-radius: 30px;
+      box-shadow: 0 8px 30px rgba(212,127,166,0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    form label {
+      font-weight: 600;
+      color: #9b507f;
+      font-size: 1rem;
+    }
+    form input, form select, form textarea {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 1.8px solid #dba7bf;
+      border-radius: 20px;
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+    form input:focus, form select:focus, form textarea:focus {
+      border-color: #d47fa6;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(212,127,166,0.2);
+    }
+    form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    form button {
+      background: #d47fa6;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 0.9rem 0;
+      font-weight: 700;
+      border-radius: 50px;
+      box-shadow: 0 10px 18px rgba(212,127,166,0.5);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+    }
+    form button:hover {
+      background: #b35a81;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 25px rgba(212,127,166,0.6);
+    }
+
+    /* Social Media */
+    .social-media {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .social-media a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: #f6e0eb;
+      border-radius: 50%;
+      color: #d47fa6;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+    .social-media a:hover {
+      background: #d47fa6;
+      color: white;
+      transform: translateY(-3px);
+      text-decoration: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      color: #a35a8f;
+      font-size: 0.9rem;
+      background: linear-gradient(to bottom, #f9e7f0, #f3d4e4);
+      margin-top: 3rem;
+    }
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(212,127,166,0.2);
+      color: #d47fa6;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      background: #d47fa6;
+      color: white;
+      transform: translateY(-3px);
+    }
+    .copyright {
+      margin-top: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav h1 {
+        font-size: 1.4rem;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      nav ul {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        gap: 1rem;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+      }
+      nav ul.active {
+        transform: translateY(0);
+      }
+      .hero-content h2 {
+        font-size: 2.25rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about-text {
+        text-align: center;
+      }
+      .certifications {
+        justify-content: center;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+      }
+      .testimonial {
+        font-size: 0.95rem;
+      }
+      .booking-container {
+        flex-direction: column;
+      }
+      .instagram-qr {
+        order: -1;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero {
+        height: 80vh;
+      }
+      .hero-content h2 {
+        font-size: 1.8rem;
+      }
+      h2.section-title {
+        font-size: 2rem;
+      }
+      .service-item h3 {
+        font-size: 1.4rem;
+      }
+      form {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>EL GLAM HOUSE</h1>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about-me">About Me</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#booking">Booking</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h2>Transform Your Special Day with Stunning Bridal Makeup</h2>
+        <p>Enhance your natural beauty and shine with personalized bridal makeup artistry that tells your story.</p>
+        <a href="#booking" class="btn-primary">Book Your Appointment</a>
+      </div>
+    </section>
+
+    <section id="about-me">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Makeup artist working" />
+        </div>
+        <div class="about-text">
+          <p>Hello! I'm Eunice, your dedicated bridal makeup artist with experience of crafting breathtaking looks for brides across the country. My passion for beauty and detail ensures that every bride feels radiant and confident on her special day.</p>
+          <p>Certified by the LAPT and trained extensively in the latest bridal trends and techniques, I prioritize using high-quality, skin-friendly products that last all day.</p>
+          <div class="certifications">
+            <span class="cert-item">LAPT Certified</span>
+            <span class="cert-item">Advanced Bridal Techniques Certificate</span>
+            <span class="cert-item">Skin-Friendly & Vegan Product Training</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">Services</h2>
+      <p class="section-description">Choose from our range of bridal makeup packages designed to beautifully complement your style and occasion.</p>
+      <div class="services-grid">
+        <article class="service-item">
+          <h3>Classic Bridal Package</h3>
+          <p>Includes full bridal makeup and hair styling for your wedding day.</p>
+          <p class="service-price">Starting at ₹3000</p>
+        </article>
+        <article class="service-item">
+          <h3>Trial Session</h3>
+          <p>Try different looks before your big day to find your perfect style.</p>
+          <p class="service-price">Starting at ₹1000</p>
+        </article>
+        <article class="service-item">
+          <h3>Destination Wedding</h3>
+          <p>Professional bridal makeup services for your destination celebrations.</p>
+          <p class="service-price">Custom Pricing</p>
+        </article>
+        <article class="service-item">
+          <h3>Bridesmaids & Family</h3>
+          <p>Coordinated makeup packages for your bridal party and family members.</p>
+          <p class="service-price">Starting at ₹1000 per person</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <h2 class="section-title">Portfolio</h2>
+      <div class="portfolio-grid" aria-label="Portfolio image gallery">
+        <div class="portfolio-item" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Before and after bridal makeup look 1" />
+          <div class="portfolio-caption">Before & After 1</div>
+        </div>
+        <div class="portfolio-item" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Wedding makeup look 1" />
+          <div class="portfolio-caption">Wedding Shoot 1</div>
+        </div>
+        <div class="portfolio-item" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1534274988754-1ae6ac9d4fad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Before and after bridal makeup look 2" />
+          <div class="portfolio-caption">Before & After 2</div>
+        </div>
+        <div class="portfolio-item" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Wedding makeup look 2" />
+          <div class="portfolio-caption">Wedding Shoot 2</div>
+        </div>
+        <div class="portfolio-item" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Before and after bridal makeup look 3" />
+          <div class="portfolio-caption">Before & After 3</div>
+        </div>
+        <div class="portfolio-item" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1564564295391-7f24f26f568b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Wedding makeup look 3" />
+          <div class="portfolio-caption">Wedding Shoot 3</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <h2 class="section-title">Testimonials</h2>
+      <div class="testimonial-slider" aria-label="Testimonials carousel">
+        <div class="testimonial-wrapper">
+          <blockquote class="testimonial" tabindex="0">
+            "Eunice made me look and feel like a queen on my wedding day! The makeup lasted all day, and I received endless compliments."
+            <strong>- Emily R.</strong>
+          </blockquote>
+          <blockquote class="testimonial" tabindex="0">
+            "Professional, friendly, and extremely talented. The trial session helped me find a look I absolutely loved."
+            <strong>- Laura M.</strong>
+          </blockquote>
+          <blockquote class="testimonial" tabindex="0">
+            "Highly recommend for destination weddings. Eunice was punctual and created a flawless look despite challenging conditions."
+            <strong>- Maria K.</strong>
+          </blockquote>
+        </div>
+      </div>
+      <div class="testimonial-nav" role="tablist" aria-label="Testimonial navigation">
+        <button class="testimonial-btn active" aria-selected="true" aria-controls="testimonial1" role="tab" data-index="0"></button>
+        <button class="testimonial-btn" aria-selected="false" aria-controls="testimonial2" role="tab" data-index="1"></button>
+        <button class="testimonial-btn" aria-selected="false" aria-controls="testimonial3" role="tab" data-index="2"></button>
+      </div>
+    </section>
+
+    <section id="booking">
+      <h2 class="section-title">Booking & Contact</h2>
+      <div class="booking-container">
+        <div class="booking-form-container">
+          <form id="booking-form" aria-label="Booking and contact form">
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" name="fullName" required placeholder="Your full name" />
+            
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com" />
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Optional" pattern="[\d\s()+-]+" />
+
+            <label for="wedding-date">Event Date</label>
+            <input type="date" id="wedding-date" name="weddingDate" required />
+
+            <label for="service">Service Required</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option value="Classic Bridal Package">Classic Bridal Package</option>
+              <option value="Trial Session">Trial Session</option>
+              <option value="Destination Wedding">Destination Wedding</option>
+              <option value="Bridesmaids & Family">Bridesmaids & Family</option>
+              <option value="Other">Other</option>
+            </select>
+
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" required placeholder="City or venue" />
+
+            <label for="message">Additional Details</label>
+            <textarea id="message" name="message" placeholder="Tell me more about your wedding..." ></textarea>
+
+            <button type="submit">Send Booking Request</button>
+          </form>
+          <p id="form-status" role="alert" aria-live="polite" style="text-align:center; margin-top:1rem; color:#d47fa6; font-weight: 700;"></p>
+        </div>
+        
+        <!-- <div class="instagram-qr">
+          <h3>Follow Me on Instagram</h3>
+          <p>For more bridal inspiration and latest work</p>
+         Replace with your actual Instagram QR code image 
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://www.instagram.com/makeoverby_eunice_?igsh=MTJoZHZhbnVpcDBlZg==" alt="Instagram QR Code">
+          <a href="https://www.instagram.com/makeoverby_eunice_?igsh=MTJoZHZhbnVpcDBlZg==" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i> @elglamhouse
+          </a>
+        </div> -->
+        <div class="instagram-section">
+          <h3>Follow Me on Instagram</h3>
+          <p>Check out my latest work and bridal inspirations</p>
+          <div class="qr-code">
+            <!-- Replace with your actual Instagram QR code image -->
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://www.instagram.com/makeoverby_eunice_?igsh=MTJoZHZhbnVpcDBlZg==" alt="Instagram QR Code">
+          </div>
+          <a href="https://www.instagram.com/makeoverby_eunice_?igsh=MTJoZHZhbnVpcDBlZg==" target="_blank" class="instagram-link">
+            <i class="fab fa-instagram"></i> @elglamhouse
+          </a>
+        </div>
+      </div>
+      
+      <!-- <div class="social-media">
+        <a href="https://www.facebook.com/elglamhouse" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/elglamhouse" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="mailto:hello@elglamhouse.com" aria-label="Email">
+          <i class="far fa-envelope"></i>
+        </a>
+      </div> -->
+    </section>
+  </main>
+
+  <footer>
+    <!-- <div class="footer-content">
+      <div class="footer-section">
+        <h3>EL GLAM HOUSE</h3>
+        <p>Professional bridal makeup services that enhance your natural beauty and make you feel confident on your special day.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="#home">Home</a></p>
+        <p><a href="#services">Services</a></p>
+        <p><a href="#portfolio">Portfolio</a></p>
+        <p><a href="#booking">Contact</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Beauty St, City</p>
+        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+        <p><i class="far fa-envelope"></i> hello@elglamhouse.com</p>
+      </div>
+      <div class="copyright">
+        &copy; 2024 EL GLAM HOUSE by Eunice. All rights reserved.
+      </div>
+    </div> -->
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="https://www.instagram.com/makeoverby_eunice_?igsh=MTJoZHZhbnVpcDBlZg==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/elglamhouse" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/7795233520" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:euniceglammhouse@gmail.com" aria-label="Email"><i class="far fa-envelope"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; 2024 EL GLAM HOUSE by Eunice. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('nav ul');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('nav ul li a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+
+    // Testimonials slider logic
+    const testimonials = document.querySelectorAll('.testimonial');
+    const testimonialWrapper = document.querySelector('.testimonial-wrapper');
+    const buttons = document.querySelectorAll('.testimonial-btn');
+    let currentIndex = 0;
+    let interval;
+
+    function showTestimonial(index) {
+      testimonialWrapper.style.transform = `translateX(-${index * 100}%)`;
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      buttons[index].classList.add('active');
+      buttons[index].setAttribute('aria-selected', 'true');
+      currentIndex = index;
+    }
+
+    function startSlider() {
+      interval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % testimonials.length;
+        showTestimonial(currentIndex);
+      }, 5000);
+    }
+
+    function stopSlider() {
+      clearInterval(interval);
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const index = parseInt(button.getAttribute('data-index'));
+        showTestimonial(index);
+        stopSlider();
+        startSlider();
+      });
+    });
+
+    // Start the slider
+    startSlider();
+
+    // Booking form submission handling
+    const form = document.getElementById('booking-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Form validation
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      
+      if (!data.fullName || !data.email || !data.weddingDate || !data.service || !data.location) {
+        status.textContent = "Please fill in all required fields.";
+        return;
+      }
+      
+      // Simulate sending email (in a real scenario, you would use a server-side script or email service)
+      status.textContent = "Sending your booking request...";
+      
+      setTimeout(() => {
+        status.textContent = "Thank you for your booking request! I will contact you shortly via email.";
+        
+        // Here you would normally send the data to your server
+        console.log("Booking Data:", data);
+        
+        // For demo purposes, we'll just log the email content
+        const emailContent = `
+          New Booking Request from EL GLAM HOUSE Website:
+          
+          Name: ${data.fullName}
+          Email: ${data.email}
+          Phone: ${data.phone || 'Not provided'}
+          Event Date: ${data.weddingDate}
+          Service: ${data.service}
+          Location: ${data.location}
+          Message: ${data.message || 'No additional details'}
+        `;
+        console.log("Email would contain:", emailContent);
+        
+        form.reset();
+      }, 1500);
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 70,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
